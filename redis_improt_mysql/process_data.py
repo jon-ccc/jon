@@ -18,7 +18,7 @@ def main():
         try:
             # 使用cursor()方法获取操作游标
             cur = mysqlcli.cursor()
-            # 使用execute方法执行SQL INSERT语句
+            # 使用execute方法执行SQL INSERT语句 表名字段
             sql = 'insert into lagou_job(url,pname,smoney,emoney,location,syear,eyear,degree,ptype,tags,date_pub,advantage,jobdesc,jobaddr,company,crawl_time) ' \
                   'VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) on duplicate key update date_pub=values(date_pub),smoney=VALUES(smoney),emoney=values(emoney)'
             cur.execute(sql, (item["url"], item["pname"], item["smoney"], item["emoney"], item["location"], item["syear"], item["eyear"],item["degree"], item["ptype"], item["tags"], item["date_pub"], item["advantage"], item["jobdesc"],item["jobaddr"], item["company"], item["crawl_time"]))
